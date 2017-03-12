@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.hanying.myfirstandroidapp.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Hanying!"
+        android:id="@+id/hiHanying"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentLeft="false"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="hey man"
+        android:id="@+id/textView"
+        android:layout_marginTop="29dp"
+        android:background="@color/abc_search_url_text_normal"
+        android:textSize="30sp"
+        android:minWidth="400dp"
+        android:textIsSelectable="false"
+        android:textColor="#fdf55d"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_below="@+id/hiHanying"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="click me here"
+        android:id="@+id/button"
+        android:background="#1be7f2"
+        android:width="200dp"
+        android:onClick="clickFunction"
+        android:layout_below="@+id/yourPW"
+        android:layout_alignLeft="@+id/yourPW"
+        android:layout_alignStart="@+id/yourPW"
+        android:layout_marginTop="29dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:id="@+id/yourName"
+        android:layout_marginTop="28dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/yourPW"
+        android:layout_below="@+id/yourName"
+        android:layout_alignLeft="@+id/yourName"
+        android:layout_alignStart="@+id/yourName" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/myImage"
+        android:src="@drawable/dog01"
+        android:scaleType="fitCenter"
+        android:maxWidth="20dp"
+        android:minHeight="20dp"
+        android:layout_below="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:onClick="clickImage" />
+
+</RelativeLayout>
