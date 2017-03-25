@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:id="@+id/innerrelativeLayout">
 
         <TextView
@@ -178,10 +178,22 @@
         android:id="@+id/startbutton"
         android:layout_weight="1"
         android:layout_alignParentStart="false"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:layout_alignParentEnd="false"
         android:layout_centerInParent="true"
         android:background="@drawable/round_button"
-        android:onClick="startGame" />
+        android:onClick="startGame"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/finalScoretextView"
+        android:layout_marginTop="20dp"
+        android:textColor="#3c5a92"
+        android:textSize="50sp"
+        android:textAlignment="center"
+        android:visibility="invisible" />
 
 </RelativeLayout>

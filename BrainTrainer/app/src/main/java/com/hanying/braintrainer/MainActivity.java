@@ -1,5 +1,8 @@
 package com.hanying.braintrainer;
 
+import android.media.MediaPlayer;
+import android.media.projection.MediaProjection;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView questionTextView;
     TextView ansertTextView;
+    TextView finalScoreTextView;
 
     Button pass;
 
@@ -28,9 +32,35 @@ public class MainActivity extends AppCompatActivity {
     int answerPosition;
     int numberQ = 0;
     int correctQ = 0;
+
     public void startGame(View view){
+
         startButton.setVisibility(View.INVISIBLE);
         innerRelativeLayout.setVisibility(View.VISIBLE);
+        scoreTextView.setText("0/0");
+        numberQ = 0;
+        correctQ = 0;
+        if(finalScoreTextView.getVisibility() == View.VISIBLE){
+            finalScoreTextView.setVisibility(View.INVISIBLE);
+        }
+        new CountDownTimer(60100,1000){
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeTextView.setText(String.valueOf(millisUntilFinished/1000)+"s");
+            }
+
+            public void onFinish(){
+                timeTextView.setText("0s");
+
+                startButton.setText("Play Again!");
+                startButton.setVisibility(View.VISIBLE);
+                innerRelativeLayout.setVisibility(View.INVISIBLE);
+                finalScoreTextView.setText("Your score:"+Integer.toString(correctQ)+"/"+Integer.toString(numberQ));
+                finalScoreTextView.setVisibility(View.VISIBLE);
+                MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(),R.raw.airhorn);
+                mPlayer.start();
+            }
+        }.start();
         generateQuestions();
     }
     public void generateQuestions(){
@@ -73,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pass(View view){
+        numberQ++;
+        ansertTextView.setText("passed");
+        scoreTextView.setText(Integer.toString(correctQ)+"/"+Integer.toString(numberQ));
         generateQuestions();
     }
 
@@ -85,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
         startButton = (Button)findViewById(R.id.startbutton);
         timeTextView = (TextView)findViewById(R.id.timetextView);
         scoreTextView = (TextView)findViewById(R.id.scoretextView);
+        finalScoreTextView = (TextView)findViewById(R.id.finalScoretextView);
         buttonAnswers = new Button[6];
 
 
