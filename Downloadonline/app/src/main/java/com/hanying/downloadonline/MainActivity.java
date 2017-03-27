@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -155,5 +156,6 @@ public class MainActivity extends AppCompatActivity {
 
         imageDownload = (ImageView)findViewById(R.id.imageView);
         textDownload = (TextView)findViewById(R.id.textView);
+        textDownload.setMovementMethod(new ScrollingMovementMethod());
     }
 }
